@@ -1,6 +1,9 @@
 FROM scratch AS ctx
-COPY build.sh /build.sh
+
 COPY system_files /system_files
+
+COPY build.sh /build.sh
+COPY cleanup /cleanup
 
 FROM ghcr.io/ublue-os/bazzite:latest@sha256:8fe30ba1e8a412c31ca62d8acb3bacfae398aad595b478c7d899a1663561ac7d
 
