@@ -7,6 +7,10 @@ cp -avf "/ctx/system_files"/. /
 # Remove Fedora kernel & remove leftover files
 dnf -y remove kernel* && rm -r -f /usr/lib/modules/*
 
+# Enable repos    
+dnf -y copr enable bieszczaders/kernel-cachyos
+dnf -y copr enable bieszczaders/kernel-cachyos-addons
+
 # Install CachyOS kernel & akmods
 
 # create a shims to bypass kernel install triggering dracut/rpm-ostree
@@ -24,7 +28,8 @@ dnf -y install --setopt=install_weak_deps=False \
   kernel-cachyos-core \
   kernel-cachyos-devel \
   kernel-cachyos-devel-matched \
-  kernel-cachyos-modules
+  kernel-cachyos-modules \
+  akmods
 
 # restore kernel install shim
 mv -f 05-rpmostree.install.bak 05-rpmostree.install \
@@ -39,9 +44,6 @@ dnf -y install --setopt=install_weak_deps=False \
 # Install cachyos-settings over zram-generator-defaults
 dnf -y swap zram-generator-defaults cachyos-settings
 
-# Disable repos
+# Disable repos    
 dnf -y copr disable bieszczaders/kernel-cachyos
 dnf -y copr disable bieszczaders/kernel-cachyos-addons
-
-# Cleanup
-dnf clean all
