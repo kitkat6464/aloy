@@ -31,6 +31,9 @@ dnf -y install --setopt=install_weak_deps=False \
   kernel-cachyos-modules \
   akmods
 
+## reinstall virtualbox-guest-additions that got caught in the crossfire 
+dnf5 -y install virtualbox-guest-additions
+
 # restore kernel install shim
 mv -f 05-rpmostree.install.bak 05-rpmostree.install \
 && mv -f 50-dracut.install.bak 50-dracut.install
