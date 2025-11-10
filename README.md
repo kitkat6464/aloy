@@ -1,5 +1,4 @@
-
-<a href="https://github.com/kitkat6464/aloy/actions/workflows/build.yml"><img src="https://github.com/kitkat6464/aloy/actions/workflows/build.yml/badge.svg" alt="Build Status" /></a>
+[![Build container image](https://github.com/kitkat6464/aloy/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/kitkat6464/aloy/actions/workflows/build.yml)
 
 <h1 align="center">Project Aloy</h1>
 <h3 align="center">To merge the greatness of Bazzite KDE with CachyOS Kernel.</h3>
